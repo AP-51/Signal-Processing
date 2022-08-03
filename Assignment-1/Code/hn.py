@@ -1,6 +1,3 @@
-#Code by GVV Sharma
-#November 20, 2018
-#released under GNU GPL
 import numpy as np
 import matplotlib.pyplot as plt
 #if using termux
