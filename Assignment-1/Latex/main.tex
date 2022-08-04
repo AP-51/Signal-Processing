@@ -349,95 +349,121 @@ wget https://github.com/AP-51/Signal-Processing/blob/main/Assignment-1/Code/dtft
 \label{fig:dtft}
 \end{figure}
 \end{enumerate}
-% \section{Impulse Response}
-% \begin{enumerate}[label=\thesection.\arabic*]
-% \item \label{prob:impulse_resp}
-% Find an expression for $h(n)$ using $H(z)$, given that 
-% %in Problem \ref{eq:ztransab} and \eqref{eq:anun}, given that
-% \begin{equation}
-% \label{eq:impulse_resp}
-% h(n) \ztrans H(z)
-% \end{equation}
-% and there is a one to one relationship between $h(n)$ and $H(z)$. $h(n)$ is known as the {\em impulse response} of the
-% system defined by \eqref{eq:iir_filter}.
-% \\
-% \solution From \eqref{eq:freq_resp},
-% \begin{align}
-% H(z) &= \frac{1}{1 + \frac{1}{2}z^{-1}} + \frac{ z^{-2}}{1 + \frac{1}{2}z^{-1}}
-% \\
-% \implies h(n) &= \brak{-\frac{1}{2}}^{n}u(n) + \brak{-\frac{1}{2}}^{n-2}u(n-2)
-% \end{align}
-% using \eqref{eq:anun} and \eqref{eq:z_trans_shift}.
-% \item Sketch $h(n)$. Is it bounded? Convergent? 
-% \\
-% \solution The following code plots Fig. \ref{fig:hn}.
-% \begin{lstlisting}
-% wget https://raw.githubusercontent.com/gadepall/EE1310/master/filter/codes/hn.py
-% \end{lstlisting}
-% \begin{figure}[!ht]
-% \centering
-% \includegraphics[width=\columnwidth]{./figs/hn}
-% \caption{$h(n)$ as the inverse of $H(z)$}
-% \label{fig:hn}
-% \end{figure}
-% %
-% \item The system with $h(n)$ is defined to be stable if
-% \begin{equation}
-% \sum_{n=-\infty}^{\infty}h(n) < \infty
-% \end{equation}
-% Is the system defined by \eqref{eq:iir_filter} stable for the impulse response in \eqref{eq:impulse_resp}?
-% %
-% \item 
-% Compute and sketch $h(n)$ using 
-% \begin{equation}
-% \label{eq:iir_filter_h}
-% h(n) + \frac{1}{2}h(n-1) = \delta(n) + \delta(n-2), 
-% \end{equation}
-% %
-% This is the definition of $h(n)$.
-% \\
-% \solution The following code plots Fig. \ref{fig:hndef}. Note that this is the same as Fig. 
-% \ref{fig:hn}. 
-% %
-% \begin{lstlisting}
-% wget https://raw.githubusercontent.com/gadepall/EE1310/master/filter/codes/hndef.py
-% \end{lstlisting}
-% \begin{figure}[!ht]
-% \centering
-% \includegraphics[width=\columnwidth]{./figs/hndef}
-% \caption{$h(n)$ from the definition}
-% \label{fig:hndef}
-% \end{figure}
-% %
-% \item Compute 
-% %
-% \begin{equation}
-% \label{eq:convolution}
-% y(n) = x(n)*h(n) = \sum_{n=-\infty}^{\infty}x(k)h(n-k)
-% \end{equation}
-% %
-% Comment. The operation in \eqref{eq:convolution} is known as
-% {\em convolution}.
-% %
-% \\
-% \solution The following code plots Fig. \ref{fig:ynconv}. Note that this is the same as 
-% $y(n)$ in  Fig. 
-% \ref{fig:xnyn}. 
-% %
-% \begin{lstlisting}
-% wget https://raw.githubusercontent.com/gadepall/EE1310/master/filter/codes/ynconv.py
-% \end{lstlisting}
-% \begin{figure}[!ht]
-% \centering
-% \includegraphics[width=\columnwidth]{./figs/ynconv}
-% \caption{$y(n)$ from the definition of convolution}
-% \label{fig:ynconv}
-% \end{figure}
-% \item Show that
-% \begin{equation}
-% y(n) =  \sum_{n=-\infty}^{\infty}x(n-k)h(k)
-% \end{equation}
-% \end{enumerate}
+\section{Impulse Response}
+\begin{enumerate}[label=\thesection.\arabic*]
+\item \label{prob:impulse_resp}
+Find an expression for $h(n)$ using $H(z)$, given that 
+%in Problem \ref{eq:ztransab} and \eqref{eq:anun}, given that
+\begin{equation}
+\label{eq:impulse_resp}
+h(n) \ztrans H(z)
+\end{equation}
+and there is a one to one relationship between $h(n)$ and $H(z)$. $h(n)$ is known as the {\em impulse response} of the
+system defined by \eqref{eq:iir_filter}.
+\\
+\solution From \eqref{eq:freq_resp},
+\begin{align}
+H(z) &= \frac{1}{1 + \frac{1}{2}z^{-1}} + \frac{ z^{-2}}{1 + \frac{1}{2}z^{-1}}
+\\
+\implies h(n) &= \brak{-\frac{1}{2}}^{n}u(n) + \brak{-\frac{1}{2}}^{n-2}u(n-2)
+\end{align}
+using \eqref{eq:anun} and \eqref{eq:z_trans_shift}.
+\item Sketch $h(n)$. Is it bounded? Convergent? 
+\\
+\solution The following code plots Fig. \ref{fig:hn}.
+\begin{lstlisting}
+wget https://github.com/AP-51/Signal-Processing/blob/main/Assignment-1/Code/hn.py
+\end{lstlisting}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{hn.png}
+\caption{$h(n)$ as the inverse of $H(z)$}
+\label{fig:hn}
+\end{figure}
+%
+\item The system with $h(n)$ is defined to be stable if
+\begin{equation}
+\sum_{n=-\infty}^{\infty}h(n) < \infty
+\end{equation}
+Is the system defined by \eqref{eq:iir_filter} stable for the impulse response in \eqref{eq:impulse_resp}?
+\solution
+\begin{align}
+&u(n)=\begin{cases}
+1 & n\geq 0\\
+0 & n<0
+\end{cases}\\
+&u(n-2)=\begin{cases}
+1 & n\geq 2\\
+0 & n<2
+\end{cases}\\
+&\therefore h(n)=\begin{cases}
+0 & n<0\\
+\left(\frac{-1}{2}\right)^n & 0 \leq n<2\\
+\left(\frac{-1}{2}\right)^n +\left(\frac{-1}{2}\right)^{(n-2)} & n \geq 2
+\end{cases}\\
+&\therefore \sum_{n=-\infty}^{\infty}h(n)=0+1+\frac{-1}{2}+\sum_{n=2}^{\infty}\left[\left(\frac{-1}{2}\right)^n +\left(\frac{-1}{2}\right)^{(n-2)}\right]\\
+&=\frac{1}{2}+\frac{5}{4}*\left(\frac{2}{3}\right)=\frac{4}{3}<\infty\\
+\end{align}
+$\therefore$ system defined is stable
+%
+\item 
+Compute and sketch $h(n)$ using 
+\begin{equation}
+\label{eq:iir_filter_h}
+h(n) + \frac{1}{2}h(n-1) = \delta(n) + \delta(n-2), 
+\end{equation}
+%
+This is the definition of $h(n)$.
+\\
+\solution The following code plots Fig. \ref{fig:hndef}. Note that this is the same as Fig. 
+\ref{fig:hn}. 
+%
+\begin{lstlisting}
+wget https://github.com/AP-51/Signal-Processing/blob/main/Assignment-1/Code/hndef.py
+\end{lstlisting}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{hndef.png}
+\caption{$h(n)$ from the definition}
+\label{fig:hndef}
+\end{figure}
+%
+\item Compute 
+%
+\begin{equation}
+\label{eq:convolution}
+y(n) = x(n)*h(n) = \sum_{n=-\infty}^{\infty}x(k)h(n-k)
+\end{equation}
+%
+Comment. The operation in \eqref{eq:convolution} is known as
+{\em convolution}.
+%
+\\
+\solution The following code plots Fig. \ref{fig:ynconv}. Note that this is the same as 
+$y(n)$ in  Fig. 
+\ref{fig:xnyn}. 
+%
+\begin{lstlisting}
+wget https://github.com/AP-51/Signal-Processing/blob/main/Assignment-1/Code/ynconv.py
+\end{lstlisting}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\columnwidth]{ynconv.png}
+\caption{$y(n)$ from the definition of convolution}
+\label{fig:ynconv}
+\end{figure}
+\item Show that
+\begin{equation}
+y(n) =  \sum_{n=-\infty}^{\infty}x(n-k)h(k)
+\end{equation}
+\solution 
+From \eqref{eq:convolution}, we substitute $k := n - k$ to get
+\begin{align}
+y\brak{n} &= \sum_{k=-\infty}^{\infty}x\brak{k}h\brak{n - k} \\
+		  &= \sum_{n - k=-\infty}^{\infty}x\brak{n - k}h\brak{k} \\
+		  &= \sum_{k=-\infty}^{\infty}x\brak{n - k}h\brak{k}
+\end{align}
+\end{enumerate}
 % %
 % \section{DFT and FFT}
 % \begin{enumerate}[label=\thesection.\arabic*]
