@@ -234,6 +234,12 @@ wget https://github.com/AP-51/Signal-Processing/blob/main/Assignment-1/Code/xnyn
 \captionof{figure}{}
 \label{fig:xnyn}	
 \end{figure}
+\item Repeat the above excercise using C code
+\solution Download and run the below code using the command\\
+\begin{lstlisting}
+wget https://github.com/AP-51/Signal-Processing/blob/main/Assignment-1/Code/de.c    
+\end{lstlisting} 
+
 \end{enumerate}
 \section{$Z$-transform}
 \begin{enumerate}[label=\thesection.\arabic*]
@@ -342,6 +348,15 @@ known as the {\em Discret Time Fourier Transform} (DTFT) of $x(n)$.
 \begin{lstlisting}
 wget https://github.com/AP-51/Signal-Processing/blob/main/Assignment-1/Code/dtft.py
 \end{lstlisting}
+Using \eqref{eq:freq_resp}, we observe that $\left|H\brak{e^{\j\omega}}\right|$ is given by
+\begin{align}
+	\left|H\brak{e^{\j\omega}}\right| &= \left|\frac{1 + e^{-2\j\omega}}{1 + \frac{1}{2}e^{-\j\omega}}\right| \\
+									  &= \sqrt{\frac{\brak{1 + \cos{2\omega}}^2 + \brak{\sin{2\omega}}^2}{\brak{1 + \frac{1}{2}\cos{\omega}}^2 + \brak{\frac{1}{2}\sin{\omega}}^2}}\\
+									  &= \sqrt{\frac{2\brak{1 + \cos{2\omega}}}{\frac{5}{4} + \cos{\omega}}} \\
+									  &= \sqrt{\frac{2\brak{2\cos^2{\omega}}}{\frac{5}{4} + \cos{\omega}}} \\
+									  &= \frac{4|\cos{\omega}|}{\sqrt{5 + 4\cos{\omega}}}
+\end{align}
+and so its fundamental period is $2\pi$.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=\columnwidth]{dtft.png}
@@ -368,8 +383,7 @@ H(z) &= \frac{1}{1 + \frac{1}{2}z^{-1}} + \frac{ z^{-2}}{1 + \frac{1}{2}z^{-1}}
 \implies h(n) &= \brak{-\frac{1}{2}}^{n}u(n) + \brak{-\frac{1}{2}}^{n-2}u(n-2)
 \end{align}
 using \eqref{eq:anun} and \eqref{eq:z_trans_shift}.
-\item Sketch $h(n)$. Is it bounded? Convergent? 
-\\
+\item Sketch $h(n)$. Is it bounded? Convergent? \\
 \solution The following code plots Fig. \ref{fig:hn}.
 \begin{lstlisting}
 wget https://github.com/AP-51/Signal-Processing/blob/main/Assignment-1/Code/hn.py
@@ -380,6 +394,7 @@ wget https://github.com/AP-51/Signal-Processing/blob/main/Assignment-1/Code/hn.p
 \caption{$h(n)$ as the inverse of $H(z)$}
 \label{fig:hn}
 \end{figure}
+$h(n)$ is convergent and converges to $0$\\
 %
 \item The system with $h(n)$ is defined to be stable if
 \begin{equation}
