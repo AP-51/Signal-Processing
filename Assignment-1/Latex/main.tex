@@ -211,6 +211,7 @@ The output of the python script in Problem \ref{prob:output} is the audio file S
 \begin{enumerate}[label=\thesection.\arabic*,ref=\thesection.\theenumi]
 \item Let
 \begin{equation}
+\label{eq:xn}
 x(n) = \cbrak{\underset{\uparrow}{1},2,3,4,2,1}
 \end{equation}
 Sketch $x(n)$.
@@ -271,6 +272,12 @@ resulting in \eqref{eq:shift1}. Similarly, it can be shown that
 \label{eq:z_trans_shift}
 	{\mathcal {Z}}\{x(n-k)\} = z^{-k}X(z)
 \end{equation}
+\item Obtain $X(z)$ for $x(n)$ defined in problem \eqref{eq:xn}.
+\solution 
+\begin{align}
+	X(z) &= 1 + 2z^{-1} + 3z^{-2} + 4z^{-3} \nonumber \\
+		&+ 2z^{-4} + z^{-5} 
+\end{align}
 \item Find
 %
 \begin{equation}
@@ -363,6 +370,14 @@ and so its fundamental period is $2\pi$.
 \caption{$\abs{H\brak{e^{\j\omega}}}$}
 \label{fig:dtft}
 \end{figure}
+
+\item Express $h(n)$ in terms of $H(e^{\j\omega})$.
+\solution Using the Inverse Discrete Time Fourier Transform of $H(e^{\j\omega})$, we get
+\begin{align}
+	h(n) &= \dfrac{1}{2\pi}\int_{-\pi}^{\pi}H(e^{\j\omega})e^{\j\omega n}d\omega \\
+		 %&= \int_{-\pi}^{\pi}\frac{1 + e^{-2\j\omega}}{1 + \frac{1}{2}e^{-\j\omega}}e^{\j\omega n}d\omega
+	\label{eq:idtft}
+\end{align}
 \end{enumerate}
 \section{Impulse Response}
 \begin{enumerate}[label=\thesection.\arabic*]
